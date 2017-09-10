@@ -176,7 +176,7 @@ Create a new Migration: `rails g rename_user_id_to_new_user_id`
       ...
 
       def redactor2_authenticate_user!
-        authenticate_admin_user! # devise before_filter
+        authenticate_admin_user! # devise before_action
       end
 
       def redactor2_current_user
