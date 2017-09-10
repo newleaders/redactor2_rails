@@ -1,4 +1,4 @@
 Redactor2Rails::Engine.routes.draw do
-  resources :images, :only => :create
-  resources :files, :only => :create
+  resources :images, :only => [:create, :show]
+  resources :files, :only => [:create, :show]
 end

@@ -12,10 +12,16 @@ class Redactor2Rails::ImagesController < ApplicationController
     end
 
     if @image.save
-      render json: { id: @image.id, url: @image.url(:content) }
+      ext = @image.data_file_name.split(".").last
+      render json: { id: @image.id, url: image_path(@image, format: ext) }
     else
       render json: { error: @image.errors }
     end
+  end
+
+  def show
+    @image = Redactor2Rails.image_model.find(params[:id])
+    redirect_to @image.url(:content)
   end
 
   private
